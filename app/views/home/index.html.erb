@@ -1,0 +1,9 @@
+<h1>Txter: An SMS demo-app using Twilio</h1>
+<% unless current_user.phone == "" || current_user.phone.nil? %>
+<p>Your phone number is: <strong><%= current_user.phone %></strong></p>
+<% else %>
+<p>No phone number entered. <a href="/users/edit">Please enter a phone number</a>.</p>
+<% end %>
+
+<br><br><br>
+<p><a class="btn btn-primary" href="/txt" role="button"><i class="bi bi-chat-text-fill"></i> Send a Text</a></p>
