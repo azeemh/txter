@@ -13,11 +13,23 @@
   <body style="padding: 3em;">
     <nav class="navbar" style="font-size: 2em;">
       <a href="/"><i class="bi-house"></i></a>
-      <a href="/users/edit"><i class="bi-person-badge"></i></a>
+
+      <% if user_signed_in? %>
+        <a href="/users/edit"><i class="bi-person-badge"></i></a>
+        <%= button_to "⏻", destroy_user_session_path, method: :delete, class: "btn btn_primary" %>
+      <% else %>
+        <%= button_to "⏻", new_user_session_path, class: "btn btn_primary" %>
+      <% end %>
 
     </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+    <% unless notice.nil? || notice=="" %>
+    <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+
+    <% unless alert.nil? || alert=="" %>
+    <p class="alert alert-warning"><%= alert %></p>
+    <% end %>
 
     <%= yield %>
   </body>
