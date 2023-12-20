@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: 3.2.0
+* Rails version: 7.1.2
+* Database: Postgresql
+* Services: Twilio
 
-Things you may want to cover:
+# Twilio Setup:
 
-* Ruby version
+This app is configured to send TXT via SMS service and uses the Twilio api. The following environment variables are required to be set or exported:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* `account_sid` is loaded from the environment variable `TWILIO_SID`
+* `auth_token` is loaded from the environment variable `TWILIO_AUTH`
+* The `from:` field in the message is loaded from the environment variable `TWILIO_PHONE`
